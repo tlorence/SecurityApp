@@ -18,9 +18,9 @@ const Navbar= ({ children }) => {
       icon: <FaTh />,
     },
     {
-      path: "/addUsers",
+      path: "/userAccount",
       name: "Add User",
-      className: "addUsers",
+      className: "UserAccount",
       icon: <FaUser />,
     },
   ];
