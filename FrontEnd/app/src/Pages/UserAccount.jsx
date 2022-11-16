@@ -59,7 +59,7 @@ export default class UserAccount extends Component {
               <div className="d-flex flex-row align-items-center mb-4">
                 <MDBIcon fas icon="key me-3" size="lg" />
                 <Form.Select aria-label="Default select example">
-                    <option hidden="true">User Type.................</option>
+                    <option hidden="true">User Account Type</option>
                     <option value="1">Manager</option>
                     <option value="2">Worker</option>
                 </Form.Select>
