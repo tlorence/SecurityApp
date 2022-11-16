@@ -15,11 +15,13 @@ import {
   } from "mdb-react-ui-kit";
 
 import './UserAccount.css'
+import Navbar from '../Shared/Navbar';
 
 export default class UserAccount extends Component {
     render(){
         return (
-        <MDBContainer fluid>
+            <MDBContainer fluid>
+            {/* <Navbar/> */}
       <MDBCard className="text-black m-5" style={{ borderRadius: "25px" }}>
         <MDBCardBody>
           <MDBRow>
@@ -95,6 +97,7 @@ export default class UserAccount extends Component {
         </MDBCardBody>
       </MDBCard>
     </MDBContainer>
+
   );
 }
 }

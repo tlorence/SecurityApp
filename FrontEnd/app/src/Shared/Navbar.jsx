@@ -9,6 +9,7 @@ import { NavLink } from "react-router-dom";
 import { useEffect } from "react";
 
 const Navbar= ({ children }) => {
+  console.log(children);
   const [isOpen, setIsOpen] = useState(true);
   const toggle = () => setIsOpen(!isOpen);
   const menuItem = [
