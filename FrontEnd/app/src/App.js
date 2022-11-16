@@ -9,11 +9,12 @@ function App() {
   return (
 
     <BrowserRouter>
-      <Navbar />
+      <Navbar>
       <Routes>
         <Route path="/" element={<Login />} />
         <Route path="/dashboard" element={<AdminDashboard />} />
       </Routes>
+      </Navbar>
     </BrowserRouter>
 
   );
