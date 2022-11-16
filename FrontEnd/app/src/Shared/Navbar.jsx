@@ -8,8 +8,8 @@ import {
 import { NavLink } from "react-router-dom";
 import { useEffect } from "react";
 
-const Navbar= ({ children }) => {
-  console.log(children);
+const Navbar= (props) => {
+  console.log(props);
   const [isOpen, setIsOpen] = useState(true);
   const toggle = () => setIsOpen(!isOpen);
   const menuItem = [
@@ -63,7 +63,7 @@ const Navbar= ({ children }) => {
           }}
         ></hr>
       </div>
-      <main>{children}</main>
+      <main>{props.child}</main>
     </div>
   );
 }

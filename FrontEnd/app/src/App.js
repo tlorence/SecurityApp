@@ -10,13 +10,11 @@ function App() {
   return (
 
     <BrowserRouter>
-        <Navbar>
       <Routes>
         <Route path="/" element={<Login />} />
-        <Route path="/dashboard" element={<AdminDashboard />} />
-        <Route path="/userAccount" element={<UserAccount />} />
+        
+        <Route path="/dashboard" element={<Navbar child={<AdminDashboard/>} />} />
       </Routes>
-      </Navbar>
     </BrowserRouter>
 
   );
