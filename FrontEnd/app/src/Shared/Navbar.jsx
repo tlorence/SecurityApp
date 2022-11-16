@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useContext,useState } from "react";
 import {
   FaTh,
   FaBars,
@@ -6,6 +6,7 @@ import {
   FaUser
 } from "react-icons/fa";
 import { NavLink } from "react-router-dom";
+import { useEffect } from "react";
 
 const Navbar= ({ children }) => {
   const [isOpen, setIsOpen] = useState(true);
