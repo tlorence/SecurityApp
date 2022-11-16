@@ -9,9 +9,11 @@ import {
   MDBCheckbox,
 } from "mdb-react-ui-kit";
 import "./Login.css";
-import axios from "axios";
 import Swal from "sweetalert2";
 import { Link } from "react-router-dom";
+import { postReq } from "../Util/httpReq";
+import { LOGIN } from "../Util/endpoints";
+import { setUserAuthToken } from "../Util/localStorage";
 
 class Login extends Component {
   constructor(props) {
@@ -32,16 +34,21 @@ class Login extends Component {
       username: this.state.username,
       password: this.state.password,
     };
-    console.log(data);
-    axios.post("URL", data).then((res) => {
-      console.log(res);
-      if (res.data === "UNAUTHORIZED") {
-        Swal.fire({
-          icon: "error",
-          title: "Login failed try again!",
-        });
-      }
-    });
+    postReq(LOGIN, data)
+      .then((res) => {
+        console.log(res);
+        if (res.status === 200) {
+          setUserAuthToken(res.data.token);
+        }
+      })
+      .catch((res) => {
+        if (res.response.status === 401) {
+          Swal.fire({
+            icon: "error",
+            title: "Login failed try again!",
+          });
+        }
+      });
   };
 
   render() {
@@ -98,7 +105,11 @@ class Login extends Component {
               <a href="!#">Forgot password?</a>
             </div>
 
-            <MDBBtn className="mb-3 w-100" size="lg">
+            <MDBBtn
+              className="mb-3 w-100"
+              size="lg"
+              onClick={this.handleSubmit}
+            >
               Sign in
             </MDBBtn>
           </MDBCol>
