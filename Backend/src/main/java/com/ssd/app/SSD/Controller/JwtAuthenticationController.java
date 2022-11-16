@@ -1,4 +1,4 @@
-package com.ssd.app.SSD.config;
+package com.ssd.app.SSD.Controller;
 
 import java.util.Objects;
 
