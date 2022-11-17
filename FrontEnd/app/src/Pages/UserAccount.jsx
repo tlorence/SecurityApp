@@ -32,7 +32,7 @@ export default class UserAccount extends Component {
             >
                 <br></br>
                 <br/>
-              <h2 classNAme="text-center h1 fw-bold mb-5 mx-1 mx-md-4 mt-4">
+              <h2 className="text-center h1 fw-bold mb-5 mx-1 mx-md-4 mt-4">
                 Add User
               </h2>
               <br></br>

@@ -10,7 +10,6 @@ import { NavLink } from "react-router-dom";
 import { useEffect } from "react";
 
 const Navbar= (props) => {
-  console.log(props);
   const [isOpen, setIsOpen] = useState(true);
   const toggle = () => setIsOpen(!isOpen);
   const menuItem = [
@@ -50,7 +49,7 @@ const Navbar= (props) => {
             to={item.path}
             key={index}
             className="link text-decoration-none"
-            activeclassName="active"
+            activeclassname="active"
           >
             <div className="icon">{item.icon}</div>
             <div

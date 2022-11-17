@@ -73,7 +73,6 @@ class Login extends Component {
             <MDBInput
               wrapperClass="mb-4"
               label="Email address"
-              id="formControlLg"
               type="email"
               size="lg"
               placeholder="Email"
@@ -85,7 +84,6 @@ class Login extends Component {
             <MDBInput
               wrapperClass="mb-4"
               label="Password"
-              id="formControlLg"
               type="password"
               size="lg"
               placeholder="Password"
