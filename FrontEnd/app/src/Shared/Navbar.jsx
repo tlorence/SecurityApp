@@ -4,7 +4,8 @@ import {
   FaBars,
 
   FaUser,
-  FaFile
+  FaFile,
+  FaMailBulk
 } from "react-icons/fa";
 import { NavLink } from "react-router-dom";
 import { useEffect } from "react";
@@ -29,6 +30,12 @@ const Navbar= (props) => {
       name: "File Upload",
       className: "FileUpload",
       icon: <FaFile />,
+    },
+    {
+      path: "/sendMessage",
+      name: "Message",
+      className: "SendMessage",
+      icon: <FaMailBulk />,
     },
   ];
   return (

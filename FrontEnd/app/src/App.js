@@ -6,6 +6,7 @@ import Navbar from './Shared/Navbar';
 import AdminDashboard from './Pages/AdminDashboard';
 import UserAccount from './Pages/UserAccount';
 import FileUpload from './Pages/FileUploadScreen';
+import SendMessage from './Pages/SendMessages';
 
 function App() {
   return (
@@ -16,6 +17,7 @@ function App() {
         <Route path="/dashboard" element={<Navbar child={<AdminDashboard/>} />} />
         <Route path="/userAccount" element={<Navbar child={<UserAccount/>} />} />
         <Route path="/fileUpload" element={<Navbar child={<FileUpload/>} />} />
+        <Route path="/sendMessage" element={<Navbar child={<SendMessage/>} />} />
       </Routes>
     </BrowserRouter>
 

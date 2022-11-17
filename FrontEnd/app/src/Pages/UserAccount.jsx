@@ -16,8 +16,24 @@ import {
 
 import './UserAccount.css'
 import Navbar from '../Shared/Navbar';
+import axios from "axios";
 
 export default class UserAccount extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      username:"",
+      password:"",
+      userType:"",
+      userAccounts: [],
+    };
+  }
+  async componentDidMount() {
+    await axios.get().then((result) => {
+      this.setState({
+      });
+    });
+  }
     render(){
         return (
             <MDBContainer fluid>
