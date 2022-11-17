@@ -13,8 +13,20 @@ import {
   MDBCheckbox,
 } from "mdb-react-ui-kit";
 import fileImg from "../Img/fileUpload.jpeg";
+import axios from "axios";
 
 export default class FileUpload extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+    };
+  }
+  async componentDidMount() {
+    await axios.get().then((result) => {
+      this.setState({
+      });
+    });
+  }
     render(){
       return (
         <MDBContainer fluid>
