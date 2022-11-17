@@ -38,7 +38,6 @@ export default class FileUpload extends Component {
     };
   }
   onSubmit() {
-    console.log();
     const formData = { file: this.state.selectedFile };
     postReq(FILEUPLOAD, formData)
       .then((res) => {
