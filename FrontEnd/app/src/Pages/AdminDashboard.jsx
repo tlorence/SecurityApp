@@ -88,28 +88,15 @@ export default class AdminDashboard extends Component {
         <div className="content-layer">
           {/* <Header topic="Dashboard" /> */}
           <h2>Admin Dashboard</h2>
+          <br></br>
           <div className="row">
             <div className="col">
               <div className="row widget-1 w-100">
-                <div className="col">
-                  {/* <Graph data={{ name: "Orders", stat: [12, 6] }} /> */}
-                </div>
                 <div className="col mt-5 text-center">
-                  <h5>Pending</h5>
+                  <h5>Manager Count</h5>
                   <h1 className="stat-number">12</h1>
-                  <h5>Complete</h5>
+                  <h5>Worker Count</h5>
                   <h1 className="stat-number">06</h1>
-                </div>
-              </div>
-              <div className="row widget-1 w-100">
-                <div className="col mt-5 text-center">
-                  <h5>Pending</h5>
-                  <h1 className="stat-number">06</h1>
-                  <h5>Complete</h5>
-                  <h1 className="stat-number">02</h1>
-                </div>
-                <div className="col">
-                  {/* <Graph data={{ name: "Deliveries", stat: [6, 2] }} /> */}
                 </div>
               </div>
             </div>

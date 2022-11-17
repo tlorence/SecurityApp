@@ -3,7 +3,8 @@ import {
   FaTh,
   FaBars,
 
-  FaUser
+  FaUser,
+  FaFile
 } from "react-icons/fa";
 import { NavLink } from "react-router-dom";
 import { useEffect } from "react";
@@ -23,6 +24,12 @@ const Navbar= (props) => {
       name: "Add User",
       className: "UserAccount",
       icon: <FaUser />,
+    },
+    {
+      path: "/fileUpload",
+      name: "File Upload",
+      className: "FileUpload",
+      icon: <FaFile />,
     },
   ];
   return (
