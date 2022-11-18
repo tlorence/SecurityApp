@@ -17,22 +17,43 @@ import {
 import './UserAccount.css'
 import Navbar from '../Shared/Navbar';
 import axios from "axios";
+import { postReq } from "../Util/httpReq";
+import { USER } from "../Util/endpoints";
+import Swal from "sweetalert2";
 
 export default class UserAccount extends Component {
   constructor(props) {
     super(props);
     this.state = {
       username:"",
+      email:"",
       password:"",
       userType:"",
       userAccounts: [],
-    };
+    }; 
+    this.onSubmit = this.onSubmit.bind(this);
   }
-  async componentDidMount() {
-    await axios.get().then((result) => {
-      this.setState({
+  handleChange = (e) => {
+    this.setState({[e.target.name]: e.target.value})
+  }
+  onSubmit() {
+    let body = {
+      email: this.state.email,
+      password: this.state.password,
+      userType: this.state.userType,
+    };
+    postReq(USER, body)
+      .then((res) => {
+        if (res.response.status === 200) {
+          Swal.fire({
+            icon: "success",
+            title: "User Successfully Created",
+          });
+        }
+      })
+      .catch((err) => {
+        console.log(err);
       });
-    });
   }
     render(){
         return (
@@ -61,12 +82,17 @@ export default class UserAccount extends Component {
                   id="form1"
                   type="text"
                   className="w-100"
+                  name="username"
                 />
               </div>
 
               <div className="d-flex flex-row align-items-center mb-4">
                 <MDBIcon fas icon="envelope me-3" size="lg" />
-                <MDBInput label="Email" id="form2" type="email" />
+                <MDBInput 
+                  label="Email" 
+                  id="form2" 
+                  type="email" 
+                  name="email"/>
               </div>
 
               <div className="d-flex flex-row align-items-center mb-4">
@@ -76,7 +102,7 @@ export default class UserAccount extends Component {
 
               <div className="d-flex flex-row align-items-center mb-4">
                 <MDBIcon fas icon="key me-3" size="lg" />
-                <Form.Select aria-label="Default select example">
+                <Form.Select aria-label="Default select example" name="userType">
                     <option hidden="true">User Account Type</option>
                     <option value="1">Manager</option>
                     <option value="2">Worker</option>
@@ -92,7 +118,7 @@ export default class UserAccount extends Component {
                 />
               </div> */}
             <div>
-              <MDBBtn className="mb-4" size="lg">
+              <MDBBtn className="mb-4" size="lg" type="Submit" onClick={this.onSubmit}>
                 Add User
               </MDBBtn>
               </div>
