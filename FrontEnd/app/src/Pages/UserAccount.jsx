@@ -16,8 +16,24 @@ import {
 
 import './UserAccount.css'
 import Navbar from '../Shared/Navbar';
+import axios from "axios";
 
 export default class UserAccount extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      username:"",
+      password:"",
+      userType:"",
+      userAccounts: [],
+    };
+  }
+  async componentDidMount() {
+    await axios.get().then((result) => {
+      this.setState({
+      });
+    });
+  }
     render(){
         return (
             <MDBContainer fluid>
@@ -32,7 +48,7 @@ export default class UserAccount extends Component {
             >
                 <br></br>
                 <br/>
-              <h2 classNAme="text-center h1 fw-bold mb-5 mx-1 mx-md-4 mt-4">
+              <h2 className="text-center h1 fw-bold mb-5 mx-1 mx-md-4 mt-4">
                 Add User
               </h2>
               <br></br>

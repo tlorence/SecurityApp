@@ -2,13 +2,14 @@ import axios from "axios";
 import { LOGIN } from "./endpoints";
 import { getUserAuthToken } from "./localStorage";
 
-export function postReq(url, body) {
+export async function postReq(url, body) {
   try {
     let res;
-    if (url == LOGIN) {
-      res = axios.post(url, body);
+    if (url === LOGIN) {
+      res =await axios.post(url, body);
     } else {
-      res = axios.post(url, body, getConfig);
+      console.log(getConfig());
+      res = axios.post(url, body, getConfig());
     }
     return res;
   } catch (error) {
@@ -17,9 +18,13 @@ export function postReq(url, body) {
 }
 
 function getConfig() {
+  console.log();
   return {
     headers: {
-      Authorization: getUserAuthToken() ?? "",
+      mode: "cors",
+      "Access-Control-Allow-Origin": "*",
+      "Content-Type": "application/json",
+      Authorization: "Bearer " + getUserAuthToken(),
     },
   };
 }
