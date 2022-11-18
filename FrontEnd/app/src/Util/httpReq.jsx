@@ -2,11 +2,11 @@ import axios from "axios";
 import { LOGIN } from "./endpoints";
 import { getUserAuthToken } from "./localStorage";
 
-export function postReq(url, body) {
+export async function postReq(url, body) {
   try {
     let res;
     if (url === LOGIN) {
-      res = axios.post(url, body);
+      res =await axios.post(url, body);
     } else {
       console.log(getConfig());
       res = axios.post(url, body, getConfig());
