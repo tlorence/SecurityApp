@@ -1,7 +1,8 @@
 package com.ssd.app.SSD.Controller;
 
-import java.util.Objects;
+import java.util.*;
 
+import com.ssd.app.SSD.Model.User;
 import com.ssd.app.SSD.service.JWTUserDetailsService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -34,17 +35,27 @@ public class JwtAuthenticationController {
     @Autowired
     private JWTUserDetailsService userDetailsService;
 
+    @Autowired
+    UserController userController;
+
     @RequestMapping(value = "/authenticate", method = RequestMethod.POST)
     public ResponseEntity<?> createAuthenticationToken(@RequestBody JwtRequest authenticationRequest) throws Exception {
 
         authenticate(authenticationRequest.getUsername(), authenticationRequest.getPassword());
+
 
         final UserDetails userDetails = userDetailsService
                 .loadUserByUsername(authenticationRequest.getUsername());
 
         final String token = jwtTokenUtil.generateToken(userDetails);
 
-        return ResponseEntity.ok(new JwtResponse(token));
+        Optional<User> user = userController.getUserRole(authenticationRequest.getUsername());
+        List login = new ArrayList();
+
+        login.add((new JwtResponse(token)));
+        login.add(user);
+
+        return ResponseEntity.ok(login);
     }
 
     private void authenticate(String username, String password) throws Exception {
